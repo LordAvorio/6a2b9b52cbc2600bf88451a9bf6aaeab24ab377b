@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import TopNavigation from "./components/TopNavigation";
+import Container from "@material-ui/core/Container";
+
+import {
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import { useDispatch } from "react-redux";
+import {getListDate} from './action'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#f9423a",
+    },
+    secondary: {
+      main: "#a23530",
+    },
+    background: {
+      default: "#e2e4e4",
+    },
+  },
+});
+
+export default function App() {
+
+
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(getListDate());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div>
+        <Container maxWidth="xl" style={{ padding: "0" }}>
+          <TopNavigation />
+        </Container>
+      </div>
+    </ThemeProvider>
   );
 }
-
-export default App;
