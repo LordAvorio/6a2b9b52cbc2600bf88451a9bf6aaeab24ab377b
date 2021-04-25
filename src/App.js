@@ -1,6 +1,9 @@
 import React from "react";
 
 import TopNavigation from "./components/TopNavigation";
+import ScrollPage from "./pages/ScrollPage" 
+
+
 import Container from "@material-ui/core/Container";
 
 import {
@@ -10,7 +13,9 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { useDispatch } from "react-redux";
-import {getListDate} from './action'
+import {getListDate, getDefaultData} from './action'
+
+
 
 const theme = createMuiTheme({
   palette: {
@@ -33,6 +38,7 @@ export default function App() {
 
   React.useEffect(() => {
     dispatch(getListDate());
+    dispatch(getDefaultData());
   }, []);
 
   return (
@@ -41,6 +47,7 @@ export default function App() {
       <div>
         <Container maxWidth="xl" style={{ padding: "0" }}>
           <TopNavigation />
+          <ScrollPage/>
         </Container>
       </div>
     </ThemeProvider>

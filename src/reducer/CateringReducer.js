@@ -1,6 +1,9 @@
 let INITIAL_STATE = {
   dataCatering: [],
   dataDate: [],
+  pickedDay: "",
+  pickedTypeFood: "",
+  pickedDate: "",
 };
 
 const cateringReducer = (state = INITIAL_STATE, action) => {
@@ -14,6 +17,21 @@ const cateringReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         dataDate: action.payload,
+      };
+    case "GET_PICKED_TYPE_FOOD":
+      return {
+        ...state,
+        pickedTypeFood: action.payload,
+      };
+    case "GET_PICKED_DATE":
+      return {
+        ...state,
+        pickedDate: action.payload,
+      };
+    case "GET_PICKED_DAY":
+      return {
+        ...state,
+        pickedDay: action.payload,
       };
     default:
       return state;
