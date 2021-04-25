@@ -2,7 +2,8 @@ import React from "react";
 
 import TopNavigation from "./components/TopNavigation";
 import ScrollPage from "./pages/ScrollPage"
-import ModalLocation from './components/ModalLocation' 
+import ModalLocation from './components/ModalLocation'
+import ModalCart from './components/ModalCart' 
 
 
 import Container from "@material-ui/core/Container";
@@ -50,6 +51,7 @@ export default function App() {
           <TopNavigation />
           <ScrollPage/>
           <ModalLocation/>
+          <ModalCart/>
         </Container>
       </div>
     </ThemeProvider>

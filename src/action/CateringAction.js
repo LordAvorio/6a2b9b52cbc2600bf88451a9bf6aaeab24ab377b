@@ -542,3 +542,37 @@ export const closeModalLocation = () => {
     }
   }
 }
+
+export const openModalCart = () => {
+  return async(dispatch) => {
+    try{
+
+      let openModal = "True"
+
+      dispatch({
+        type: "TRIGGER_MODAL_CART",
+        payload: openModal,
+      });
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+}
+
+export const closeModalCart = () => {
+  return async(dispatch) => {
+    try{
+
+      let closeModal = "False"
+
+      dispatch({
+        type: "TRIGGER_MODAL_CART",
+        payload: closeModal,
+      });
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+}

@@ -4,7 +4,10 @@ import moment from "moment";
 import "moment/locale/id";
 
 //REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { openModalCart } from "../action/";
+
 
 //Material Ui Components
 import Grid from "@material-ui/core/Grid";
@@ -72,9 +75,15 @@ function ScrollPage() {
     };
   });
 
+  const dispatch = useDispatch();
+
+  const handleOpenModalCart = () => {
+    dispatch(openModalCart())
+  }
+
   return (
     <div>
-      <Grid container style={{ padding: "8% 5%" }}>
+      <Grid container style={{ padding: "8% 5%", marginTop: '45%' }}>
         <Grid item xs={12}>
           <TitleDate>
             {moment(datePicked).locale("id").format("dddd")},
@@ -114,7 +123,7 @@ function ScrollPage() {
                         <TitleHarga>Rp. {(item.harga).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&.')}</TitleHarga>
                     </Grid>
                     <Grid item xs={4}>
-                        <Button variant="contained" color="primary" style={{width: '100%', fontFamily: '"Open Sans", sans-serif', fontSize: '14px', fontWeight: 'bolder'}}>Add +</Button>
+                        <Button onClick={() => handleOpenModalCart()} variant="contained" color="primary" style={{width: '100%', fontFamily: '"Open Sans", sans-serif', fontSize: '14px', fontWeight: 'bolder'}}>Add +</Button>
                     </Grid>
                   </Grid>
                 </Grid>

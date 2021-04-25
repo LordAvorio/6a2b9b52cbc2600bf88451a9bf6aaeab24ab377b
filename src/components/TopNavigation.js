@@ -149,7 +149,7 @@ export default function TopNavigation() {
 
   return (
     <div>
-      <AppBar position="static" style={{backgroundColor: '#ffff'}}>
+      <AppBar position="fixed" style={{backgroundColor: '#ffff'}}>
         <Grid container style={{ padding: "6px 2px" }}>
           <Grid item xs={2}>
             <IconButton>
