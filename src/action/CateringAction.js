@@ -508,3 +508,37 @@ export const chooseMenu = (typefood, tanggal) => {
     }
   };
 };
+
+export const openModalLocation = () => {
+  return async(dispatch) => {
+    try{
+
+      let openModal = "True"
+
+      dispatch({
+        type: "TRIGGER_MODAL_LOCATION",
+        payload: openModal,
+      });
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+}
+
+export const closeModalLocation = () => {
+  return async(dispatch) => {
+    try{
+
+      let closeModal = "False"
+
+      dispatch({
+        type: "TRIGGER_MODAL_LOCATION",
+        payload: closeModal,
+      });
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
+}

@@ -4,6 +4,7 @@ let INITIAL_STATE = {
   pickedDay: "",
   pickedTypeFood: "",
   pickedDate: "",
+  triggerModalLocation: "True",
 };
 
 const cateringReducer = (state = INITIAL_STATE, action) => {
@@ -33,6 +34,11 @@ const cateringReducer = (state = INITIAL_STATE, action) => {
         ...state,
         pickedDay: action.payload,
       };
+    case "TRIGGER_MODAL_LOCATION":
+      return{
+        ...state,
+        triggerModalLocation: action.payload
+      }
     default:
       return state;
   }

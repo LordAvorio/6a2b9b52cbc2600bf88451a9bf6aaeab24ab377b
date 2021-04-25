@@ -1,7 +1,8 @@
 import React from "react";
 
 import TopNavigation from "./components/TopNavigation";
-import ScrollPage from "./pages/ScrollPage" 
+import ScrollPage from "./pages/ScrollPage"
+import ModalLocation from './components/ModalLocation' 
 
 
 import Container from "@material-ui/core/Container";
@@ -48,6 +49,7 @@ export default function App() {
         <Container maxWidth="xl" style={{ padding: "0" }}>
           <TopNavigation />
           <ScrollPage/>
+          <ModalLocation/>
         </Container>
       </div>
     </ThemeProvider>

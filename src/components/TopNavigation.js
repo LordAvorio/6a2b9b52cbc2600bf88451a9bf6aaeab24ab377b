@@ -9,7 +9,7 @@ import "moment/locale/id";
 import { useSelector, useDispatch } from "react-redux";
 
 //ACTION
-import {chooseMenu} from "../action/"
+import {chooseMenu, openModalLocation} from "../action/"
 
 //Material Ui Components
 import AppBar from "@material-ui/core/AppBar";
@@ -124,6 +124,10 @@ export default function TopNavigation() {
     };
   });
 
+  const handleOpenModalLocation = () => {
+    dispatch(openModalLocation())
+  }
+
   const setLunch = () => {
     setFoodTime("Lunch");
     let waktuMakan = "Lunch"
@@ -167,6 +171,7 @@ export default function TopNavigation() {
                   fontSize: "14px",
                   textTransform: "capitalize",
                 }}
+                onClick={() => handleOpenModalLocation()}
               >
                 Tokopedia Tower
               </Button>
