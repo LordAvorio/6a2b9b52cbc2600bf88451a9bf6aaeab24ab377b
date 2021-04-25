@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Carousel from "react-multi-carousel";
 import moment from "moment";
+import "moment/locale/id";
+
 
 //REDUX
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+//ACTION
+import {chooseMenu} from "../action/"
 
 //Material Ui Components
 import AppBar from "@material-ui/core/AppBar";
@@ -107,22 +112,36 @@ const ButtonNotActive = styled.button`
 
 export default function TopNavigation() {
   const [foodTime, setFoodTime] = useState("Lunch");
+  const [pilihWaktuMakan, setPilihWaktuMakan] = useState("2021-03-8")
 
-  const { listDate } = useSelector((state) => {
+  const dispatch = useDispatch();
+
+  const { listDate, pickedDate, pickedTypeMenu } = useSelector((state) => {
     return {
       listDate: state.CateringReducer.dataDate,
+      pickedDate: state.CateringReducer.pickedDate,
+      pickedTypeMenu: state.CateringReducer.pickedTypeFood
     };
   });
 
   const setLunch = () => {
     setFoodTime("Lunch");
-    console.log(foodTime);
+    let waktuMakan = "Lunch"
+    dispatch(chooseMenu(waktuMakan,pickedDate))
   };
 
   const setDinner = () => {
     setFoodTime("Dinner");
-    console.log(foodTime);
+    let waktuMakan = "Dinner"
+    dispatch(chooseMenu(waktuMakan,pickedDate))
   };
+
+  const chooseDay = (tanggal) => {
+    setPilihWaktuMakan(tanggal)
+    dispatch(chooseMenu(pickedTypeMenu,tanggal))
+  }
+
+  
 
   return (
     <div>
@@ -170,7 +189,7 @@ export default function TopNavigation() {
                     }}
                   >
                     {item.status === "active" ? (
-                      <CardActionArea onClick={() => console.log("test")}>
+                      <CardActionArea onClick={() => chooseDay(item.tanggal)}>
                         <Grid item xs={12}>
                           <DateTitle1>{item.simpleDateName}</DateTitle1>
                         </Grid>

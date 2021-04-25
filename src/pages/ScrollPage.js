@@ -101,7 +101,7 @@ function ScrollPage() {
                     <TitleRating>{item.ratingMakanan}</TitleRating>
                   </Grid>
                   <Grid item xs={11}>
-                    <Rating defaultValue={item.ratingMakanan} precision={0.5} style={{fontSize: '18px', color: '#f9423a'}}/>
+                    <Rating value={item.ratingMakanan} precision={0.5} style={{fontSize: '18px', color: '#f9423a'}}/>
                   </Grid>
                   <Grid item xs={12}>
                     <TitleFood>{item.namaMakanan}</TitleFood>
